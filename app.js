@@ -18,6 +18,7 @@ const elTempDht = document.getElementById('val-tempdht');
 const elHum = document.getElementById('val-hum');
 const elTempBmp = document.getElementById('val-tempbmp');
 const elPres = document.getElementById('val-pres');
+const elAlt = document.getElementById('val-alt');
 const elWind = document.getElementById('val-wind');
 const elRain = document.getElementById('val-rain');
 const elRainAnalog = document.getElementById('val-rain-analog');
@@ -196,11 +197,14 @@ client.on('message', function (topic, message) {
         elHum.innerText = payload.humidity !== null ? payload.humidity.toFixed(1) : '--';
         elTempBmp.innerText = payload.tempBMP !== null ? payload.tempBMP.toFixed(1) : '--';
         elPres.innerText = payload.pressure !== null ? payload.pressure.toFixed(1) : '--';
+        if (payload.altitude !== undefined) {
+            elAlt.innerText = payload.altitude !== null ? payload.altitude.toFixed(1) : '--';
+        }
         elWind.innerText = payload.windSpeed !== null ? payload.windSpeed.toFixed(1) : '--';
         
         if (payload.rainDigital !== undefined) {
-            elRain.innerText = payload.rainDigital === 0 ? 'Sí (Lloviendo)' : 'No';
-            elRain.style.color = payload.rainDigital === 0 ? 'var(--info)' : 'var(--text-main)';
+            elRain.innerText = payload.rainDigital === 0 ? 'Sí (Lloviendo/Nieve)' : 'No';
+            elRain.style.color = payload.rainDigital === 0 ? '#38bdf8' : 'var(--text-main)';
         }
         
         if (payload.rainAnalog !== undefined) {
