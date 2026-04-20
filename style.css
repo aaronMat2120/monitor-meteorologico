@@ -45,10 +45,11 @@ body {
 }
 
 .project-logo {
-    width: 65px;
-    height: 65px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain; /* Para que el logo no se recorte */
+    padding: 8px; /* Espacio para que no toque los bordes */
     background-color: #ffffff;
     border: 2px solid var(--primary);
     box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
