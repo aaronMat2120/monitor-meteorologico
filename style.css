@@ -44,10 +44,14 @@ body {
     gap: 1rem;
 }
 
-.logo i {
-    font-size: 2.5rem;
-    color: var(--primary);
-    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
+.project-logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ffffff;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
 }
 
 .logo h1 {
@@ -137,6 +141,7 @@ body {
 .humidity .widget-icon { color: #38bdf8; }
 .temp-bmp .widget-icon { color: #f87171; }
 .pressure .widget-icon { color: #c084fc; }
+.altitude .widget-icon { color: #10b981; }
 .wind .widget-icon { color: #94a3b8; }
 .rain .widget-icon { color: #60a5fa; }
 

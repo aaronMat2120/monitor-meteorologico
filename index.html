@@ -19,7 +19,7 @@
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="logo">
-                <i class="fa-solid fa-cloud-sun-rain"></i>
+                <img src="logo.png" alt="SCIEE Logo" class="project-logo">
                 <h1>Estación Meteorológica SCIEE</h1>
             </div>
             <div class="status-indicator">
@@ -62,6 +62,14 @@
                 </div>
             </div>
 
+            <div class="widget card altitude">
+                <div class="widget-icon"><i class="fa-solid fa-mountain"></i></div>
+                <div class="widget-info">
+                    <h3>Altitud Aproximada</h3>
+                    <div class="value"><span id="val-alt">--</span> m</div>
+                </div>
+            </div>
+
             <div class="widget card wind">
                 <div class="widget-icon"><i class="fa-solid fa-wind"></i></div>
                 <div class="widget-info">
@@ -71,9 +79,9 @@
             </div>
 
             <div class="widget card rain">
-                <div class="widget-icon"><i class="fa-solid fa-cloud-showers-heavy"></i></div>
+                <div class="widget-icon"><i class="fa-solid fa-snowflake"></i></div>
                 <div class="widget-info">
-                    <h3>Estado de Lluvia</h3>
+                    <h3>Lluvia y Nieve</h3>
                     <div class="value"><span id="val-rain">--</span></div>
                     <div class="sub-value">Sensor analógico: <span id="val-rain-analog">--</span></div>
                 </div>
