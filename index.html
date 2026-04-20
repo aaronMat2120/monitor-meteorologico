@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor Meteorológico en Tiempo Real</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- MQTT.js (via CDN for browser) -->
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <header class="dashboard-header">
+            <div class="logo">
+                <i class="fa-solid fa-cloud-sun-rain"></i>
+                <h1>Estación Meteorológica SCIEE</h1>
+            </div>
+            <div class="status-indicator">
+                <span id="connection-status" class="status-dot disconnected"></span>
+                <span id="connection-text">Desconectado</span>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Tarjetas de datos en vivo -->
+            <div class="widget card temp-dht">
+                <div class="widget-icon"><i class="fa-solid fa-temperature-half"></i></div>
+                <div class="widget-info">
+                    <h3>Temperatura (DHT22)</h3>
+                    <div class="value"><span id="val-tempdht">--</span> °C</div>
+                </div>
+            </div>
+
+            <div class="widget card humidity">
+                <div class="widget-icon"><i class="fa-solid fa-droplet"></i></div>
+                <div class="widget-info">
+                    <h3>Humedad Relativa</h3>
+                    <div class="value"><span id="val-hum">--</span> %</div>
+                </div>
+            </div>
+
+            <div class="widget card temp-bmp">
+                <div class="widget-icon"><i class="fa-solid fa-temperature-arrow-up"></i></div>
+                <div class="widget-info">
+                    <h3>Temperatura (BMP280)</h3>
+                    <div class="value"><span id="val-tempbmp">--</span> °C</div>
+                </div>
+            </div>
+
+            <div class="widget card pressure">
+                <div class="widget-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <div class="widget-info">
+                    <h3>Presión Atmosférica</h3>
+                    <div class="value"><span id="val-pres">--</span> hPa</div>
+                </div>
+            </div>
+
+            <div class="widget card wind">
+                <div class="widget-icon"><i class="fa-solid fa-wind"></i></div>
+                <div class="widget-info">
+                    <h3>Velocidad del Viento</h3>
+                    <div class="value"><span id="val-wind">--</span> m/s</div>
+                </div>
+            </div>
+
+            <div class="widget card rain">
+                <div class="widget-icon"><i class="fa-solid fa-cloud-showers-heavy"></i></div>
+                <div class="widget-info">
+                    <h3>Estado de Lluvia</h3>
+                    <div class="value"><span id="val-rain">--</span></div>
+                    <div class="sub-value">Sensor analógico: <span id="val-rain-analog">--</span></div>
+                </div>
+            </div>
+            
+            <!-- Gráficos -->
+            <div class="chart-container card">
+                <h2>Temperatura en el tiempo</h2>
+                <canvas id="tempChart"></canvas>
+            </div>
+            
+            <div class="chart-container card">
+                <h2>Humedad y Presión</h2>
+                <canvas id="humPresChart"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
